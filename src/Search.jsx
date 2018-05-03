@@ -8,7 +8,12 @@ class Search extends Component{
         return(
             
             <div className="searchbar">
-                <input type="text" placeholder="Search for..." />
+                <input 
+                    type="text" 
+                    placeholder="Search for..." 
+                    value={this.props.searchTerm}
+                    onChange={e => this.props.searchChangeHandler(e)}
+                />
                 <button type="submit" onClick={this.props.onClickMethod}>Search</button>
             </div>
         )

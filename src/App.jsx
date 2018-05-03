@@ -16,21 +16,27 @@ class App extends Component{
                 image: '',
                 focusedRecipe: ''
             }
-        this.onClickMethod = this.onClickMethod.bind(this);
+        // this.onClickMethod = this.onClickMethod.bind(this);
+        this.searchChangeHandler = this.searchChangeHandler.bind(this);
     }
     
-    onClickMethod(){
-        axios.get("https://api.edamam.com/search?q=jhvjvlyluygjbkugkuyfgku&app_id=db94298e&app_key=67cad0c983d150908c35fb58db405dcc&from=0&to=5")
-        .then(res => { if(res.data.hits[0] != undefined){
+    onClickMethod = () =>{
+        axios.get(`https://api.edamam.com/search?q=${this.state.searchTerm}&app_id=db94298e&app_key=67cad0c983d150908c35fb58db405dcc&from=0&to=5`)
+        .then(res => { if(res.data.hits[0] !== undefined){
             this.setState({
                 fetchedRecipes: res.data.hits
-                },()=> console.log(this.state.fetchedRecipes));
-            }else alert("Sorry, that didn't produce any recipes..."),
-            this.setState({
+                },()=> console.log(res.data));
+            }else this.setState({
                 searchTerm: ''
-            }) 
+            },() => alert("Sorry, that didn't produce any recipes..."))
         })
         .catch(err => console.log(err));
+    }
+    searchChangeHandler = (e) => {
+        this.setState({
+            searchTerm: e.target.value
+        },() => console.log(this.state.searchTerm))
+        
     }
 
 
@@ -42,6 +48,7 @@ class App extends Component{
                 <Functionality 
                     onClickMethod={this.onClickMethod}
                     searchTerm={this.state.searchTerm}
+                    searchChangeHandler={this.searchChangeHandler}
                 />
                 <RecipeText 
                     focusedRecipe={this.state.focusedRecipe}

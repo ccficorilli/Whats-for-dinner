@@ -14,7 +14,11 @@ class Functionality extends Component{
         <div className='holding-cell'>       
             <div className="search-col">
                 <div><h3>What's in the Fridge??</h3></div>
-                <Search onClickMethod={this.props.onClickMethod}/>
+                <Search 
+                    onClickMethod={this.props.onClickMethod}
+                    searchTerm={this.props.searchTerm}
+                    searchChangeHandler={this.props.searchChangeHandler}  
+                />
                 <RecipeImg />    
             </div>
             <Nutrition />
