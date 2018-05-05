@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
 
 class Search extends Component{
-    constructor(props){
-        super(props);
-    }
+  
     render(){
-        return(
-            
+        return(            
             <div className="searchbar">
                 <input 
                     type="text" 
@@ -14,7 +11,7 @@ class Search extends Component{
                     value={this.props.searchTerm}
                     onChange={e => this.props.searchChangeHandler(e)}
                 />
-                <button type="submit" onClick={this.props.onClickMethod}>Search</button>
+                <button type="submit" onClick={this.props.onClickSearch}>Search</button>
             </div>
         )
     }
