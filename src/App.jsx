@@ -4,7 +4,6 @@ import './stylesheet.css';
 import Functionality from './Functionality';
 import RecipeText from './RecipeText';
 import Display from './Display';
-import NavBar from './NavBar';
 
 class App extends Component{
     constructor(props){
@@ -12,9 +11,9 @@ class App extends Component{
             this.state = {
                 recipes: [],
                 searchTerm: '',
-                image: '',
-                focusedRecipe: '',
-                index: false
+                index: false,
+                dropdown: false,
+                placeholder: 'Search here...'
                 
             }
         // this.onClickMethod = this.onClickMethod.bind(this);
@@ -26,11 +25,14 @@ class App extends Component{
         .then(res => { if(res.data.hits[0] !== undefined){
             this.setState({
                 recipes: res.data.hits,
+                placeholder: `Last Search ~ ${this.state.searchTerm}`,
                 searchTerm: '',
-                index: 0
+                index: 0,
+                dropdown: false,
                 });
             }else this.setState({
-                searchTerm: ''
+                searchTerm: '',
+                dropdown: false
             },() => alert("Sorry, that didn't produce any recipes..."))
         })
         .catch(err => console.log(err));
@@ -46,11 +48,13 @@ class App extends Component{
         if(i !== false){
             if(this.state.index === 4){
                 this.setState({
-                    index: 0
+                    index: 0,
+                    dropdown: false
                 });
             }else
                 this.setState({
-                    index: (i+1)
+                    index: (i+1),
+                    dropdown: false
                 });
         }
     }
@@ -59,21 +63,55 @@ class App extends Component{
         if(i !== false){
             if(this.state.index === 0){
                 this.setState({
-                    index: 4
+                    index: 4,
+                    dropdown: false
                 })
             }else
                 this.setState({
-                    index: (i-1)
+                    index: (i-1),
+                    dropdown: false
                 });
         }
     }
-
-
-    
+    toggleDropdown = () =>{
+        if(this.state.dropdown === false){
+            this.setState({
+                dropdown: true
+            });
+        }else
+            this.setState({
+                dropdown: false
+            });
+    }
+    resetBtnClick = () => {
+        this.setState({
+            recipes: [],
+            searchTerm: '',
+            index: false,
+            dropdown: false
+        })
+    }
+    firstRun = () => {
+        while(this.state.index === false){
+            return <div></div>
+        }return (
+            <div>
+                <RecipeText 
+                    recipes={this.state.recipes}
+                    index={this.state.index}
+                />
+                <Display
+                    toggleDropdown={this.toggleDropdown}
+                    dropdown={this.state.dropdown}
+                    reset={this.resetBtnClick}
+                />
+            </div>
+        );
+    }
     render(){
         return(
             <div className='container'>
-                <header><h1>What's for dinner!?</h1></header>
+               <h1>What's for dinner!?</h1>
                 <Functionality 
                     onClickSearch={this.onClickSearch}
                     searchTerm={this.state.searchTerm}
@@ -82,13 +120,9 @@ class App extends Component{
                     index={this.state.index}
                     indexForward={this.indexForward}
                     indexBackward={this.indexBackward}
+                    placeholder={this.state.placeholder}
                 />
-                <RecipeText 
-                    recipes={this.state.recipes}
-                    index={this.state.index}
-                />
-                <NavBar />
-                <Display />
+                {this.firstRun()}
             </div>
         )
     }

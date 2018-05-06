@@ -1,110 +1,136 @@
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(230, 210, 184);
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif, Arial;
 }
+
 .container {
     box-sizing: border-box;
     display: block;
-    width: 100%;
-    border: 1px black solid;
+    max-width: 1250px;
     padding: 4px;
     border-radius: 8px;
     margin: auto;
 }
+
 .holding-cell {
     display: flex;
-    border: 1px rgb(255, 0, 0) solid;
     padding: 4px;
     border-radius: 8px;
-    margin: 10px;
+    margin: auto;
 }
+
 .navbar {
+    width: 80%;
     box-sizing: border-box;
-    border: 1px solid rgb(38, 0, 255);
     padding: 6px;
-    display: inline-flex;
     margin: 10px;
 }
-.nav {
+
+.nav-btn {
+    /* visibility: hidden; */
+    position: absolute top;
+    width: 140px;
+    display: block;
     border: 1px solid black;
     padding: 4px;
     border-radius: 4px;
-    margin: 2px;
+    /* margin: 3px; */
     background-color: rgb(151, 192, 133);
 }
-.search-col{
+
+.nav-btn:active {
+    background-color: rgb(198, 255, 174);
+    border: 1px solid rgb(112, 112, 112);
+}
+
+.search-col {
     box-sizing: border-box;
     width: 70%;
+    max-width: 800px;
     margin: 1%;
     padding: 10px;
     border: solid 1px black;
     border-radius: 4px;
+    background-color: rgb(238, 238, 238);
 }
-.nutrition-col{
+
+.nutrition-col {
     box-sizing: border-box;
     width: 25%;
+    max-width: 400px;
+    min-width: 280px;
     margin: 1%;
     padding: 6px;
-    border: solid 1px black;
+    border: solid 4px black;
     border-radius: 4px;
+    background-color: rgb(255, 255, 255)
 }
-table {
-    width: 100%;
-}
-tr {
-    width: 100%;
-    border-bottom: 1px solid black;
 
-}
-.nute-value {
+.nutes-right {
+    float: right;
     text-align: right;
-    background-color: white;
 }
-.nute-label{
-    width: 70%;
-    background-color: white;
-}
-.recipe-row {
-    box-sizing: border-box;
-    display: flex;
-    width: 100%;
-    border: 1px black solid;
-    padding: 4px;
-}
-.ingredients {
-    display: inline-flex;
-}
-.instructions {
-    
-    display: inline-flex;
-    padding: 10px;
 
+.nutes {
+    border-bottom: 1px solid black;
+    background-color: white;
 }
-.nav-display {
+
+.recipe-row {
+    margin: 10px;
+    padding: 0px 8px;
+    box-sizing: border-box;
+    display: block;
+    /* border: 1px black solid; */
+    border-radius: 10px;
+    background-color: rgb(212, 227, 255);
+}
+
+.ingredients {
+    overflow: hidden;
+    font-size: 1.2em;
+    display: flex;
+}
+
+.instructions {
+    background-color: rgb(184, 200, 230);
+    font-size: 1.3em;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.display {
     margin: auto;
     padding: 4px;
-    border: black solid 1px;
+    /* border: black solid 1px; */
     border-radius: 4px;
     min-height: 300px;
 }
+
 .choices {
     box-sizing: border-box;
     padding: 10px 10px 5px 10px;
     width: 100%;
-    border: 1px solid rgb(22, 100, 218);
+    /* border: 1px solid rgb(22, 100, 218); */
     border-radius: 4px;
-    background-color: rgb(255, 200, 137);
+    background-color: rgb(238, 238, 238);
     margin: auto;
-
 }
-.tester{
+
+.tester {
     box-sizing: border-box;
     width: 100%;
     display: inline-flex;
 }
+
 .choice-img {
-    width: 45vmax;
-    height: 35vmax;
+    max-width: 35vmax;
+    max-height: 35vmax;
     background-color: white;
     border: 1px black solid;
     border-radius: 25%;
@@ -112,17 +138,23 @@ tr {
     margin: auto;
     overflow: hidden;
 }
+
 .imgArrows {
     width: 6vmax;
     height: 8vmax;
 }
+
 a {
     margin: auto;
+    width: 100%;
+    height: 100%;
 }
+
 .imgHolder {
     width: 100%;
     height: 100%;
 }
+
 .choice-title {
     margin: auto;
     width: 60%;
@@ -130,34 +162,44 @@ a {
     font-size: 3vmax;
     text-align: center;
 }
+
 input {
-    max-width: 100%;
+    width: 80%;
     border-radius: 4px;
     outline: none;
     border: none;
     font-size: 1em;
-    background-color: rgb(255, 255, 232);
+    background-color: rgb(226, 226, 226);
     padding: 10px;
     margin: 4px;
 }
 
+
 button {
-    background-color: bisque;
-    border: transparent 2px solid;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    background-color: rgb(226, 226, 226);
+    border: transparent 1px solid;
     border-radius: 4px;
     outline: none;
     padding: 4px;
-    margin: 4px 
+    margin: 4px;
 }
-button:active {
-    border: rgb(196, 196, 196) solid 2px;
+.searchbar {
+    width: 100%;
 }
+.search-btn:active {
+    border: rgb(196, 196, 196) solid 1px;
+}
+
 .left-arrow {
     float: left;
 }
+
 .right-arrow {
     float: right;
 }
+
 .right-arrow:active,
 .left-arrow:active {
     opacity: .5;

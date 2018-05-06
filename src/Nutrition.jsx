@@ -6,37 +6,31 @@ class Nutrition extends Component{
         const i = this.props.index;
         if(i === false){
             return (
-                <div className="nutrition-col">
-                    Nutritional Info...
-                </div>)
+                <div></div>)
         }else{
             var nutrients = this.props.recipes[i].recipe.digest;
             var totalCal = Math.ceil(this.props.recipes[i].recipe.calories);
             var totalServ = Number((this.props.recipes[i].recipe.yield).toFixed(1));
             var servSize = Number((this.props.recipes[i].recipe.totalWeight / totalServ).toFixed(1));
             var calPer = Number((totalCal/totalServ).toFixed(1));
-            console.log(totalCal, totalServ, servSize, calPer);
             return (<div className="nutrition-col">
-                <p className="total-nutes">Total Servings = ~{totalServ} <br />
-                    Serving Size = ~{servSize}g <br />
-                    Calories per Serv. = {calPer} <br />
-                    Calories per (g) = {Number((calPer / servSize).toFixed(1))}
+                <p className="total-nutes">Total Servings<span className="nutes-right">about {totalServ}</span> <br />
+                    Serving Size<span className="nutes-right">about {servSize}g</span> <br />
+                    Calories per Serv.<span className="nutes-right">{calPer}</span> <br />
+                    Calories per (g)<span className="nutes-right">{Number((calPer / servSize).toFixed(1))}</span>
                 </p>
-                <table>
-                    <tbody>
                     {nutrients.map(nutrients => (
-                        <tr className="nutes">
-                            <td className="nute-labels">
+                        <div className="nutes"
+                            key={Math.random()}>
+                            <span className="nute-labels">
                                 {nutrients.label}
-                            </td>
-                            <td className="nute-value">
+                            </span>
+                            <span className="nutes-right">
                                 {(nutrients.total / totalServ).toFixed(1)} 
                                 {nutrients.unit}
-                            </td>
-                        </tr>)
+                            </span>
+                        </div>)
                     )}
-                    </tbody>
-                </table>
             </div>
             )}
         }

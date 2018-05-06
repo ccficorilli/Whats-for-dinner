@@ -9,11 +9,12 @@ class Functionality extends Component{
         return(
         <div className='holding-cell'>       
             <div className="search-col">
-                <div><h3>What's in the Fridge??</h3></div>
+                <div><h2>I feel like having....</h2></div>
                 <Search 
                     onClickSearch={this.props.onClickSearch}
                     searchTerm={this.props.searchTerm}
                     searchChangeHandler={this.props.searchChangeHandler}
+                    placeholder={this.props.placeholder}
                 />
                 <RecipeImg
                     recipes={this.props.recipes}

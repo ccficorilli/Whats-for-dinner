@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
+import IngredientList from './IngredientList.jsx'
 
 class RecipeText extends Component{
 
-    loadCheck(){
+    loadCheck = () =>{
+        const i = this.props.index;
         if(this.props.index !== false){
-            var i = this.props.index;
-            return this.props.recipes[i].recipe.url;
+            const url = this.props.recipes[i].recipe.url;
+            return (
+                <div className="instructions">
+                    <p>Unfortunately, this API is free and requires recognition
+                    of the original contributor for the recipe instructions. Please 
+                    <span><a href={url}> CLICK HERE </a></span> 
+                    or click the recipe image for the complete instructions for this dish.
+                    </p> 
+                </div>);
         }else
-            return 'localhost:3000';
+            return '';
     }
     
     render(){
         return(
             <div className="recipe-row">
-                <div className="ingreidients">
-                    {this.splitIngredientList}
-                </div>
-                <div className="instructions">
-                    <p>Unfortunately, this is a free API and requires recognition
-                     of the website for the original recipe and instructions. Please <span href={this.loadCheck}>
-                         CLICK HERE </span> or click the recipe
-                        image for the complete instructions for this dish.
-                    </p>
-                </div>
-                    
+                <IngredientList 
+                    recipes={this.props.recipes}
+                    index={this.props.index}
+                />
+                {this.loadCheck()}
             </div>
-        
         )}
 }
 export default RecipeText;
