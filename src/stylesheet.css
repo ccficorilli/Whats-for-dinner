@@ -21,24 +21,23 @@ body {
 }
 
 .navbar {
-    width: 80%;
+    width: 100%;
     box-sizing: border-box;
-    padding: 6px;
-    margin: 10px;
+    padding: 4px;
+    margin: auto;
 }
-
+.menuTab {
+display: block;
+}
 .nav-btn {
     /* visibility: hidden; */
-    position: absolute top;
-    width: 140px;
-    display: block;
+    display: inline;
     border: 1px solid black;
     padding: 4px;
     border-radius: 4px;
-    /* margin: 3px; */
+    /* margin: auto; */
     background-color: rgb(151, 192, 133);
 }
-
 .nav-btn:active {
     background-color: rgb(198, 255, 174);
     border: 1px solid rgb(112, 112, 112);
@@ -48,7 +47,7 @@ body {
     box-sizing: border-box;
     width: 70%;
     max-width: 800px;
-    margin: 1%;
+    margin: auto;
     padding: 10px;
     border: solid 1px black;
     border-radius: 4px;
@@ -82,7 +81,7 @@ body {
     padding: 0px 8px;
     box-sizing: border-box;
     display: block;
-    /* border: 1px black solid; */
+    border: 1px black solid;
     border-radius: 10px;
     background-color: rgb(212, 227, 255);
 }
@@ -97,19 +96,17 @@ body {
     background-color: rgb(184, 200, 230);
     font-size: 1.3em;
     width: 80%;
-    display: flex;
     margin: auto;
     padding: 10px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+
 }
 
 .display {
     margin: auto;
-    padding: 4px;
-    /* border: black solid 1px; */
+    padding: 4px 4px 0px 4px;
     border-radius: 4px;
-    min-height: 300px;
 }
 
 .choices {

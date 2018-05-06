@@ -3,7 +3,6 @@ import axios from 'axios';
 import './stylesheet.css';
 import Functionality from './Functionality';
 import RecipeText from './RecipeText';
-import Display from './Display';
 
 class App extends Component{
     constructor(props){
@@ -99,8 +98,6 @@ class App extends Component{
                 <RecipeText 
                     recipes={this.state.recipes}
                     index={this.state.index}
-                />
-                <Display
                     toggleDropdown={this.toggleDropdown}
                     dropdown={this.state.dropdown}
                     reset={this.resetBtnClick}

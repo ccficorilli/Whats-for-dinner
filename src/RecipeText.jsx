@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import IngredientList from './IngredientList.jsx'
+import IngredientList from './IngredientList'
+import Display from './Display'
 
 class RecipeText extends Component{
 
     loadCheck = () =>{
         const i = this.props.index;
         if(this.props.index !== false){
-            const url = this.props.recipes[i].recipe.url;
-            return (
-                <div className="instructions">
-                    <p>Unfortunately, this API is free and requires recognition
-                    of the original contributor for the recipe instructions. Please 
-                    <span><a href={url}> CLICK HERE </a></span> 
-                    or click the recipe image for the complete instructions for this dish.
-                    </p> 
-                </div>);
+            return <Display 
+                        url={this.props.recipes[i].recipe.url}
+                        toggleDropdown={this.props.toggleDropdown}
+                        dropdown={this.props.dropdown}
+                        reset={this.props.reset}
+                    />
         }else
             return '';
     }
