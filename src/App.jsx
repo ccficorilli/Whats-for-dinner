@@ -109,6 +109,7 @@ class App extends Component{
         return(
             <div className='container'>
                <h1>What's for dinner!?</h1>
+               (only reset button works for now)
                 <Functionality 
                     onClickSearch={this.onClickSearch}
                     searchTerm={this.state.searchTerm}
