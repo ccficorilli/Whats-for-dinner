@@ -14,7 +14,7 @@ class Display extends Component {
                     <p>Unfortunately, this API is free and requires recognition
                     of the original contributor for the recipe instructions. Please 
                     <span><a href={this.props.url}> CLICK HERE </a></span> 
-                    or click the recipe image for the complete instructions for this dish.
+                    or click the recipe image for the complete instructions of this dish.
                     </p> 
                 </div>
             </div>    
